@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "credits",
+  "info": {
+    "singularName": "credit",
+    "pluralName": "credits",
+    "displayName": "credit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "kredit_id": {
+      "type": "uid",
+      "required": true
+    },
+    "customer_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer.customer",
+      "mappedBy": "credit"
+    },
+    "motor_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::motorcycle.motorcycle",
+      "mappedBy": "credit"
+    },
+    "tanggal_ajuan": {
+      "type": "date",
+      "required": true
+    },
+    "uang_muka": {
+      "type": "biginteger",
+      "required": true
+    },
+    "tenor": {
+      "type": "integer",
+      "required": true
+    },
+    "bunga": {
+      "type": "decimal",
+      "required": true
+    },
+    "angsuran": {
+      "type": "biginteger",
+      "required": true
+    },
+    "status_kredit": {
+      "type": "enumeration",
+      "enum": [
+        "Disetujui",
+        "Ditolak",
+        "Pending"
+      ],
+      "default": "Pending",
+      "required": true
+    }
+  }
+}

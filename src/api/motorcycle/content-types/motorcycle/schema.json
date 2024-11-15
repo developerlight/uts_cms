@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "motorcycles",
+  "info": {
+    "singularName": "motorcycle",
+    "pluralName": "motorcycles",
+    "displayName": "motorcycle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "motor_id": {
+      "type": "uid",
+      "required": true
+    },
+    "merk": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 20
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "tahun": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4,
+      "required": true
+    },
+    "warna": {
+      "type": "string",
+      "required": true
+    },
+    "harga": {
+      "type": "biginteger",
+      "required": true
+    },
+    "kondisi": {
+      "type": "string",
+      "required": true
+    },
+    "kilometer": {
+      "type": "string",
+      "required": true
+    },
+    "gambar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "dokument": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "credit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::credit.credit",
+      "inversedBy": "motor_id"
+    }
+  }
+}

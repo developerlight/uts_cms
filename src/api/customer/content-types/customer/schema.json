@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "customer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer_id": {
+      "type": "uid",
+      "required": true
+    },
+    "nama": {
+      "type": "string",
+      "required": true
+    },
+    "nik": {
+      "type": "string",
+      "required": true
+    },
+    "alamat": {
+      "type": "text"
+    },
+    "no_telp": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 16
+    },
+    "pekerjaan": {
+      "type": "string"
+    },
+    "penghasilan": {
+      "required": true,
+      "type": "biginteger"
+    },
+    "credit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::credit.credit",
+      "inversedBy": "customer_id"
+    }
+  }
+}
